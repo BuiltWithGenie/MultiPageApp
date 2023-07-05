@@ -1,0 +1,29 @@
+<header class="st-header q-pa-sm">
+    <h1 draggable="true" class="st-header__title text-h3">Neural network training </h1>
+</header>
+<div class="row">
+    <div class="st-col col-6 col-sm st-module">
+        <h3>Parameters</h3>
+        <div>
+            <p>Layer 1 neurons</p>
+            <q-slider :min="1" v-model="layer_neurons[2]" label="" :max="64" :step="1"></q-slider>
+            <p>Layer 2 neurons</p>
+            <q-slider :min="1" v-model="layer_neurons[3]" label="" :max="64" :step="1"></q-slider>
+        </div>
+        <p>Train samples </p>
+        <q-slider :min="1" v-model="N_train" label="" :max="500" :step="1"></q-slider>
+
+        Epochs <q-slider :min="1" v-model="epochs" label="" :max="1000" :step="50"></q-slider><br />
+        <div class="row">
+            <div class="st-col col-6 col-sm">
+                <q-btn color="primary" v-on:click="train = !train" lodading="training" text-color="black"
+                    label="TRAIN"></q-btn>
+                <q-btn color="primary" v-on:click="save = !save" lodading="training" text-color="black"
+                    label="SAVE"></q-btn>
+            </div>
+        </div>
+    </div>
+    <div class="st-col col-6 col-sm st-module">
+        <plotly :data="traces" :layout="layout"></plotly>
+    </div>
+</div>
