@@ -1,0 +1,10 @@
+[deps]
+BSON = "fbb218c0-5317-5bc6-957e-2ee96dd4b1f0"
+CSV = "336ed68f-0bac-5ca0-87d4-7b16caf5d00b"
+DataFrames = "a93c6f00-e57d-5684-b7b6-d8193f3e46c0"
+Flux = "587475ba-b771-5e3f-ad9e-33799f191a9c"
+GenieFramework = "a59fdf5c-6bf0-4f5d-949c-a137c9e2f353"
+NNlib = "872c559c-99b0-510c-b3b7-b6c96a88d5cd"
+PlotlyBase = "a03496cd-edff-5a9b-9e67-9cda94a718b5"
+SwagUI = "bf05d729-34b2-4f1f-a2f1-2452bece7ebc"
+SwaggerMarkdown = "1b6eb727-ad4b-44eb-9669-b9596a6e760f"
