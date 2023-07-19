@@ -6,8 +6,8 @@ using BSON
 using SwagUI
 using SwaggerMarkdown
 
-Core.eval(Main, :(import NNlib))
-Core.eval(Main, :(import Flux))
+# Core.eval(Main, :(import NNlib))
+# Core.eval(Main, :(import Flux))
 model = BSON.load("models/bostonflux.bson")[:model]
 data = CSV.read("data/HousingData.csv", DataFrame, missingstring="NA")
 
@@ -55,6 +55,6 @@ swagger_document = build(openApi)
 
 ui() = render_swagger(swagger_document)
 
-@page("/", ui)
+@page("/api", ui)
 end
 
