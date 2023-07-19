@@ -3,19 +3,20 @@ using PlotlyBase
 include("app/NNtrain.jl")
 using .NNtrain
 using GenieFramework
-using BSON: @save, @load
+using JLD2
 @genietools
 
 data_path = "data/HousingData_normalized.dlf"
 model = []
 
 @app begin
-    @in layer_neurons = [13,64,50,1]
+    @in layer_neurons = [13, 64, 32, 1]
     @in N_train = 320
     @in train = false
     @in training = false
-    @in epochs = 1000
+    @in epochs = 100
     @in save = false
+    @private model = instantiate_model([13, 64, 32, 1])
     @out train_errors = []
     @out test_errors = []
     @out traces = []
@@ -23,20 +24,19 @@ model = []
         title="Error vs. epoch",
     )
     @onchange train begin
-        @show "Training"
         training = true
-        model, train_errors, test_errors=train_network(data_path, layer_neurons, N_train, epochs)
+        data_split = train_test_data(data, N_train)
+        model, train_errors, test_errors = train_test_network(data_split, layer_neurons, N_train, epochs)
         traces = [
-                  scatter(x=collect(1:epochs), y=train_errors, name="train")
-                  scatter(x=collect(1:epochs), y=test_errors, name="test")
-                 ]
+            scatter(x=collect(1:epochs), y=train_errors, name="train")
+            scatter(x=collect(1:epochs), y=test_errors, name="test")
+        ]
         training = false
-        save = true
     end
     @onchange save begin
         println("Model saved")
-        @save "models/bostonflux.bson" model
-        save = false
+        # BSON.save("models/bostonflux.bson", model)
+        jldsave("models/bostonflux.jld2"; model)
     end
 end
 

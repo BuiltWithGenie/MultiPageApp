@@ -1,9 +1,8 @@
 module NNtrain
 using Flux, Random, Statistics, CSV, DataFrames
 using DelimitedFiles: readdlm, writedlm
-using Flux: @epochs, throttle
 
-export normalize_data, train_test_data, train_network
+export normalize_data, train_test_data, instantiate_model, train_test_network
 
 # Read data, normalize it, and save the normalized data
 function normalize_data(input_file_path::String, output_file_path::String)
@@ -37,24 +36,29 @@ function train_test_data(data::Matrix, N_train::Int; target_index::Int=14)
     return x_train', x_test', y_train', y_test'
 end
 
-function train_network(data_path::String, layer_neurons::Vector{Int}, N_train::Int, epochs::Int)
+function instantiate_model(layer_neurons::Vector{Int})
     # Define the model architecture
-    model = Chain(
+    Chain(
         Dense(layer_neurons[1], layer_neurons[2], relu),
         Dense(layer_neurons[2], layer_neurons[3], relu),
         Dense(layer_neurons[3], 1)
     )
+end
+
+function train_test_network(data::NTuple, layer_neurons::Vector{Int}, N_train::Int, epochs::Int)
+    # Unpack the data
+    x_train, x_test, y_train, y_test = data
+    train_data = [(x_train, y_train)]
+
+    # Instantiate the model
+    model = instantiate_model(layer_neurons)
 
     # Define the optimizer
     opt = ADAM()
 
-    # Define the loss function
+    # Define the loss function and parameters to optimize
     loss(x, y) = Flux.Losses.mse(model(x), y)
-
-    # Define the parameters to optimize and training data
     parameters = Flux.params(model)
-    x_train, x_test, y_train, y_test = train_test_data(readdlm(data_path, ','), N_train)
-    data = [(x_train, y_train)]
 
     # Define a callback to record the loss at each epoch
     train_errors = []
@@ -65,7 +69,9 @@ function train_network(data_path::String, layer_neurons::Vector{Int}, N_train::I
     end
 
     # Train the model using the defined loss function, parameters, data, and optimizer
-    @epochs epochs Flux.train!(loss, parameters, data, opt, cb=evalcb)
+    for i in 1:epochs
+        Flux.train!(loss, parameters, train_data, opt, cb=evalcb)
+    end
 
     # Return the trained model
     return model, train_errors, test_errors
