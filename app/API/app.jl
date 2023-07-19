@@ -1,15 +1,15 @@
 module API
 using GenieFramework.Genie.Renderers.Json: json
 using GenieFramework
-using CSV, Flux, DataFrames, NNlib
-using BSON
+using CSV, Flux, DataFrames, NNlib, JLD2
 using SwagUI
 using SwaggerMarkdown
 
 # Core.eval(Main, :(import NNlib))
 # Core.eval(Main, :(import Flux))
-model = BSON.load("models/bostonflux.bson")[:model]
+# model = BSON.load("models/bostonflux.bson")[:model]
 data = CSV.read("data/HousingData.csv", DataFrame, missingstring="NA")
+model = JLD2.load("models/bostonflux.jld2", "model")
 
 function predict()
     house = Vector(data[params(:id), 1:13])
