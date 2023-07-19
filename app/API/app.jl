@@ -5,9 +5,6 @@ using CSV, Flux, DataFrames, NNlib, JLD2
 using SwagUI
 using SwaggerMarkdown
 
-# Core.eval(Main, :(import NNlib))
-# Core.eval(Main, :(import Flux))
-# model = BSON.load("models/bostonflux.bson")[:model]
 data = CSV.read("data/HousingData.csv", DataFrame, missingstring="NA")
 model = JLD2.load("models/bostonflux.jld2", "model")
 

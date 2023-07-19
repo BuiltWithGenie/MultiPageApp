@@ -13,7 +13,7 @@ const data = readdlm("data/HousingData_normalized.dlf", ',')
     @in layer_neurons = [13, 64, 32, 1]
     @in N_train = 320
     @in train = false
-    @in training = false
+    @out training = false
     @in epochs = 100
     @in save = false
     @private model = instantiate_model([13, 64, 32, 1])
@@ -35,7 +35,6 @@ const data = readdlm("data/HousingData_normalized.dlf", ',')
     end
     @onchange save begin
         println("Model saved")
-        # BSON.save("models/bostonflux.bson", model)
         jldsave("models/bostonflux.jld2"; model)
     end
 end
