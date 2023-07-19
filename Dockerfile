@@ -14,12 +14,6 @@ USER genie
 # instantiate Julia packages
 RUN julia -e "using Pkg; Pkg.activate(\".\"); Pkg.instantiate(); Pkg.precompile();"
 
-# Precompile signatures
-# RUN julia --project precompile.jl
-# RUN chmod +x bin/repl
-# RUN chmod +x bin/server
-# RUN chmod +x bin/runtask
-
 # ports
 EXPOSE 8000
 EXPOSE 80

@@ -9,7 +9,6 @@ using PlotlyBase
 const data = CSV.read("data/HousingData.csv", DataFrame, missingstring="NA") |> DataFrame
 
 @app begin
-    @out tab = "home"
     @out housing_data = DataTable(data)
     @out housing_data_pagination = DataTablePagination(rows_per_page=10)
 

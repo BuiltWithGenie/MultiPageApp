@@ -3,11 +3,11 @@ using PlotlyBase
 include("app/NNtrain.jl")
 using .NNtrain
 using GenieFramework
+using DelimitedFiles, Flux
 using JLD2
 @genietools
 
-data_path = "data/HousingData_normalized.dlf"
-model = []
+const data = readdlm("data/HousingData_normalized.dlf", ',')
 
 @app begin
     @in layer_neurons = [13, 64, 32, 1]
@@ -40,7 +40,7 @@ model = []
     end
 end
 
-@page("/","app.jl.html")
+@page("/", "app.jl.html")
 
 end
 
