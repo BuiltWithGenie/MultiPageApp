@@ -24,7 +24,7 @@ const data = CSV.read("data/HousingData.csv", DataFrame, missingstring="NA") |> 
         xaxis_title="Rooms",
         yaxis_title="MEDV"
     )
-    
+    #
     # Histogram
     @out hist_trace = [histogram(x=data[:, "MEDV"], name="Median Value Distribution")]
     @out hist_layout = PlotlyBase.Layout(

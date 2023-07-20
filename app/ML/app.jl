@@ -1,10 +1,8 @@
 module ML
-using PlotlyBase
 include("app/NNtrain.jl")
 using .NNtrain
 using GenieFramework
-using DelimitedFiles, Flux
-using JLD2
+using DelimitedFiles, Flux, JLD2, PlotlyBase
 @genietools
 
 const data = readdlm("data/HousingData_normalized.dlf", ',')
