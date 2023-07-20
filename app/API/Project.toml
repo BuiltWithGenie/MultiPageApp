@@ -1,11 +1,7 @@
 [deps]
-BSON = "fbb218c0-5317-5bc6-957e-2ee96dd4b1f0"
-ExproniconLite = "55351af7-c7e9-48d6-89ff-24e801d99491"
 Flux = "587475ba-b771-5e3f-ad9e-33799f191a9c"
 Genie = "c43c736e-a2d1-11e8-161f-af95117fbd1e"
 GenieFramework = "a59fdf5c-6bf0-4f5d-949c-a137c9e2f353"
+JLD2 = "033835bb-8acc-5ee8-8aae-3f567f8a3819"
 MLDatasets = "eb30cadb-4394-5ae3-aed4-317e484a6458"
-NNlib = "872c559c-99b0-510c-b3b7-b6c96a88d5cd"
 Random = "9a3f8284-a2c9-5f02-9a11-845980a1fd5c"
-SearchLight = "340e8cb6-72eb-11e8-37ce-c97ebeb32050"
-SearchLightSQLite = "21a827c4-482a-11ea-3a19-4d2243a4a2c5"
