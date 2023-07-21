@@ -1,7 +1,7 @@
 [deps]
+DataFrames = "a93c6f00-e57d-5684-b7b6-d8193f3e46c0"
 Flux = "587475ba-b771-5e3f-ad9e-33799f191a9c"
-Genie = "c43c736e-a2d1-11e8-161f-af95117fbd1e"
 GenieFramework = "a59fdf5c-6bf0-4f5d-949c-a137c9e2f353"
 JLD2 = "033835bb-8acc-5ee8-8aae-3f567f8a3819"
-MLDatasets = "eb30cadb-4394-5ae3-aed4-317e484a6458"
-Random = "9a3f8284-a2c9-5f02-9a11-845980a1fd5c"
+SwagUI = "bf05d729-34b2-4f1f-a2f1-2452bece7ebc"
+SwaggerMarkdown = "1b6eb727-ad4b-44eb-9669-b9596a6e760f"
