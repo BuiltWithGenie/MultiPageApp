@@ -1,14 +1,14 @@
 module API
 using GenieFramework
 using GenieFramework.Genie.Renderers.Json: json
-using CSV, Flux, DataFrames, JLD2
+using Flux, DataFrames, JLD2, DelimitedFiles
 using SwagUI, SwaggerMarkdown
 
-data = CSV.read("data/HousingData.csv", DataFrame, missingstring="NA")
+const data = readdlm("data/HousingData_normalized.dlf", ',')
 model = JLD2.load("models/bostonflux.jld2", "model")
 
 function predict()
-    house = Vector(data[params(:id), 1:13])
+    house = data[params(:id), 1:13]
     @show house
     json("MEDV" => model(house))
 end
