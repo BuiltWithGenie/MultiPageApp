@@ -51,6 +51,8 @@ swagger_document = build(openApi)
 
 ui() = render_swagger(swagger_document)
 
-@page("/api", ui)
+#add route without default layout
+@page("/api", ui, nothing)
+
 end
 
