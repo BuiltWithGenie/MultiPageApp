@@ -1,15 +1,15 @@
 module API
 using GenieFramework
 using GenieFramework.Genie.Renderers.Json: json
-using CSV, Flux, DataFrames, JLD2
+using Flux, DataFrames, JLD2, DelimitedFiles
 using SwagUI, SwaggerMarkdown
 
-data = CSV.read("data/HousingData.csv", DataFrame, missingstring="NA")
+# data = CSV.read("data/HousingData.csv", DataFrame, missingstring="NA")
+const data = readdlm("data/HousingData_normalized.dlf", ',')
 model = JLD2.load("models/bostonflux.jld2", "model")
 
 function predict()
-    house = Vector(data[params(:id), 1:13])
-    @show house
+    house = data[params(:id), 1:13]
     json("MEDV" => model(house))
 end
 
@@ -42,7 +42,6 @@ route("/api/reload") do
     model = JLD2.load("models/bostonflux.jld2", "model")
     "Model reloaded"
 end
-
 info = Dict{String,Any}()
 info["title"] = "Boston housing MEDV prediction"
 info["version"] = "1.0.5"
