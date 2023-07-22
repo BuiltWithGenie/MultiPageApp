@@ -18,8 +18,9 @@
 	},
 "features": {
     "ghcr.io/julialang/devcontainer-features/julia:latest": {
+	     "channel": "1.9"
     }
 },
-	"postStartCommand": "mkdir -p ~/.julia/geniebuilder/apps && ln -s /workspaces/MultiPageApp/app/EDA/ ~/.julia/geniebuilder/apps/EDA && ln -s /workspaces/MultiPageApp/app/ML ~/.julia/geniebuilder/apps/ML && ln -s /workspaces/MultiPageApp/app/API ~/.julia/geniebuilder/apps/API && ln -s /workspaces/MultiPageApp/ ~/.julia/geniebuilder/apps/MultiPage",
+	"postStartCommand": "startcmd.sh",
 	"forwardPorts": [8000]
 }
