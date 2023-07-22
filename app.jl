@@ -8,8 +8,8 @@ import .EDA
 import .ML
 import .API
 
-@page("/eda", "app/EDA/app.jl.html", "layout.jl.html", Main.App.EDA)
-@page("/ml", "app/ML/app.jl.html", "layout.jl.html", Main.App.ML)
+@page("/eda", "app/EDA/ui.jl", "layout.jl", Main.App.EDA)
+@page("/ml", "app/ML/ui.jl", "layout.jl", Main.App.ML)
 @page("/api", Main.App.API.ui, nothing)
 route("/") do
     redirect(:get_eda)

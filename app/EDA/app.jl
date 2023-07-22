@@ -24,6 +24,7 @@ const data = CSV.read("data/HousingData.csv", DataFrame, missingstring="NA") |> 
         xaxis_title="Rooms",
         yaxis_title="MEDV"
     )
+
     #
     # Histogram
     @out hist_trace = [histogram(x=data[:, "MEDV"], name="Median Value Distribution")]
@@ -39,5 +40,6 @@ const data = CSV.read("data/HousingData.csv", DataFrame, missingstring="NA") |> 
     )
 end
 
-@page("/", "app.jl.html")
+# @page("/", "app.jl.html")
+@page("/", "ui.jl")
 end
