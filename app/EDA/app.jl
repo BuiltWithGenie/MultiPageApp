@@ -12,5 +12,6 @@ const data = CSV.read("data/HousingData.csv", DataFrame, missingstring="NA") |> 
     # reactive code goes here
 end
 
-@page("/", "app.jl.html")
+# @page("/", "app.jl.html")
+@page("/", "ui.jl")
 end

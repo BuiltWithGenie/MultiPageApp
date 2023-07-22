@@ -7,8 +7,8 @@ using .NNtrain
 
 const data = readdlm("data/HousingData_normalized.dlf", ',')
 
-@app begin
-end
+@app begin end
 
-@page("/", "app.jl.html")
+# @page("/", "app.jl.html")
+@page("/", "ui.jl")
 end
