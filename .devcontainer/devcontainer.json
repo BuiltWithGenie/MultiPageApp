@@ -1,0 +1,26 @@
+{
+	"name": "Genie Workshop",
+	"image": "julia:latest",
+
+	// Configure tool-specific properties.
+	"customizations": {
+		// Configure properties specific to VS Code.
+		"vscode": {
+			// Add the IDs of extensions you want installed when the container is created.
+			"extensions": [
+				"julialang.language-julia",
+				"geniebuilder.geniebuilder"
+			]
+		}
+	},
+
+	"postCreateCommand": "/julia-devcontainer-scripts/postcreate.jl",
+
+	"remoteUser": "vscode",
+	"features": {
+		"ghcr.io/eitsupi/devcontainer-features/julia:0": {
+			"version": "latest"
+		}
+	},
+	"forwardPorts": [8000]
+}
