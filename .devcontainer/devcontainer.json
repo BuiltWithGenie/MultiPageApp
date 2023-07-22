@@ -2,7 +2,7 @@
 // See https://github.com/julia-vscode/julia-devcontainer/blob/master/Dockerfile for image contents
 {
 	"name": "Genie",
-	"image": "ghcr.io/julia-vscode/julia-devcontainer",
+	"image": "ghcr.io/julia-vscode/julia-devcontainer:latest",
 
 	// Configure tool-specific properties.
 	"customizations": {
