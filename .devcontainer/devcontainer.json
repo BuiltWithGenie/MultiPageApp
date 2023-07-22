@@ -24,7 +24,7 @@
 	"postCreateCommand": "ln -s app/EDA/ ~/.julia/geniebuilder/EDA",
 	"postCreateCommand": "ln -s app/ML/ ~/.julia/geniebuilder/ML",
 	"postCreateCommand": "ln -s app/API/ ~/.julia/geniebuilder/API",
-	"postCreateCommand": "ln -s . ~/.julia/geniebuilder/MultiPage"
+	"postCreateCommand": "ln -s . ~/.julia/geniebuilder/MultiPage",
 	"postCreateCommand": "julia --startup-file=no --depwarn=no /home/vscode/.vscode-remote/extensions/geniebuilder.geniebuilder-0.4.10/scripts/rungb.jl",
 
 
