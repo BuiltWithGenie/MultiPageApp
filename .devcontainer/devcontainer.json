@@ -17,7 +17,7 @@
 		}
 	},
 
-	"remoteUser": "genie"
+	"remoteUser": "vscode"
 ,
 	"forwardPorts": [8000]
 }
