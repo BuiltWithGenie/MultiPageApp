@@ -1,6 +1,8 @@
+
+// See https://github.com/julia-vscode/julia-devcontainer/blob/master/Dockerfile for image contents
 {
-	"name": "Genie Workshop",
-	"image": "julia:latest",
+	"name": "Julia (Community)",
+	"image": "ghcr.io/julia-vscode/julia-devcontainer",
 
 	// Configure tool-specific properties.
 	"customizations": {
@@ -10,17 +12,14 @@
 			"extensions": [
 				"julialang.language-julia",
 				"geniebuilder.geniebuilder"
+
 			]
 		}
 	},
 
 	"postCreateCommand": "/julia-devcontainer-scripts/postcreate.jl",
 
-	"remoteUser": "vscode",
-	"features": {
-		"ghcr.io/eitsupi/devcontainer-features/julia:0": {
-			"version": "latest"
-		}
-	},
+	"remoteUser": "vscode"
+,
 	"forwardPorts": [8000]
 }
