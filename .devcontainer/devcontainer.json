@@ -1,8 +1,7 @@
 
 // See https://github.com/julia-vscode/julia-devcontainer/blob/master/Dockerfile for image contents
 {
-	"name": "Julia (Community)",
-	"build": { "dockerfile": "Dockerfile" },
+	"name": "Genie",
 
 	// Configure tool-specific properties.
 	"customizations": {
@@ -16,12 +15,8 @@
 			]
 		}
 	},
-
-	"remoteUser": "vscode"
-,
-	"forwardPorts": [8000],
-
-	"postStartCommand": "sh startcmd.sh",
-
-
+"features": {
+    "ghcr.io/julialang/devcontainer-features/julia:1": {}
+},
+	"forwardPorts": [8000]
 }
