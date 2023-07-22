@@ -2,7 +2,7 @@
 // See https://github.com/julia-vscode/julia-devcontainer/blob/master/Dockerfile for image contents
 {
 	"name": "Julia (Community)",
-	"image": "julia",
+	"build": { "dockerfile": "Dockerfile" },
 
 	// Configure tool-specific properties.
 	"customizations": {
