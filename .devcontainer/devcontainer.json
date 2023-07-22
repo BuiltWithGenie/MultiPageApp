@@ -18,5 +18,6 @@
 "features": {
     "ghcr.io/julialang/devcontainer-features/julia:1": {}
 },
+	"postStartCommand": "mkdir -p ~/.julia/geniebuilder/apps",
 	"forwardPorts": [8000]
 }
