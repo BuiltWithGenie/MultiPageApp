@@ -18,8 +18,6 @@
 "features": {
     "ghcr.io/julialang/devcontainer-features/julia:1": {}
 },
-	"postStartCommand": "mkdir -p ~/.julia/geniebuilder/apps",
-	"postStartCommand": "ln -s app/EDA/ ~/.julia/geniebuilder/EDA",
-	"postStartCommand": "ln -s app/ML/ ~/.julia/geniebuilder/ML",
+	"postStartCommand": "mkdir -p ~/.julia/geniebuilder/apps && ln -s app/EDA/ ~/.julia/geniebuilder/EDA && ln -s app/ML/ ~/.julia/geniebuilder/ML",
 	"forwardPorts": [8000]
 }
