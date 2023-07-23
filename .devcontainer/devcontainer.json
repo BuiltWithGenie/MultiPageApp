@@ -1,6 +1,9 @@
 {
     "name": "Genie",
     "image": "julia",
+    "build": {
+        "dockerfile": "Dockerfile"
+    },
     "workspaceFolder": "/home/genie/MultiPageApp",
     "customizations": {
         "vscode": {
