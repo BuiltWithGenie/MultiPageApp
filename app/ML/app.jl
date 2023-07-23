@@ -1,5 +1,5 @@
 module ML
-include("app/NNtrain.jl")
+include("lib/NNtrain.jl")
 using .NNtrain
 using GenieFramework
 using DelimitedFiles, Flux, JLD2, PlotlyBase
@@ -37,8 +37,8 @@ const data = readdlm("data/HousingData_normalized.dlf", ',')
     end
 end
 
-@page("/", "app.jl.html")
-# @page("/", "ui.jl")
+#@page("/", "app.jl.html")
+@page("/", "ui.jl")
 
 end
 
