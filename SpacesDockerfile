@@ -1,37 +1,48 @@
 # pull latest julia image
 FROM julia:latest
+RUN apt-get -y update
+RUN apt-get -y install git
 # create dedicated user
 RUN useradd --create-home --shell /bin/bash genie
 # set up the app
-RUN mkdir -p /home/genie/MultiPageapp
-COPY . /home/genie/
 WORKDIR /home/genie/
-
 # configure permissions
 RUN chown -R genie:genie /home/genie
 # switch user
 USER genie
+
+RUN git clone --branch template https://github.com/BuiltWithGenie/MultiPageApp.git MultiPageApp
+
+RUN mkdir -p /home/genie/.julia/geniebuilder/apps
+RUN ln -s MultiPageApp/app/EDA ~/.julia/geniebuilder/apps/EDA
+RUN ln -s MultiPageApp/app/ML ~/.julia/geniebuilder/apps/ML
+RUN ln -s MultiPageApp/app/API ~/.julia/geniebuilder/apps/API
+RUN ln -s MultiPageApp ~/.julia/geniebuilder/apps/MultiPage
+
 # instantiate Julia packages
+WORKDIR /home/genie/MultiPageApp
 RUN julia -e "using Pkg; Pkg.activate(\".\"); Pkg.instantiate(); Pkg.precompile();"
-run cd /home/genie/app/EDA/
+WORKDIR /home/genie/MultiPageApp/app/EDA
 RUN julia -e "using Pkg; Pkg.activate(\".\"); Pkg.instantiate(); Pkg.precompile();"
-run cd /home/genie/app/ML/
+WORKDIR /home/genie/MultiPageApp/app/ML
 RUN julia -e "using Pkg; Pkg.activate(\".\"); Pkg.instantiate(); Pkg.precompile();"
-run cd /home/genie/app/API/
+WORKDIR /home/genie/MultiPageApp/app/API
 RUN julia -e "using Pkg; Pkg.activate(\".\"); Pkg.instantiate(); Pkg.precompile();"
+WORKDIR /home/genie/
 
 # ports
 EXPOSE 8000
 EXPOSE 80
 # set up app environment
-ENV JULIA_DEPOT_PATH "/workspaces/.julia"
+ENV JULIA_DEPOT_PATH "/home/genie/.julia"
 ENV JULIA_REVISE = "off"
-ENV GENIE_ENV "prod"
+ENV GENIE_ENV "dev"
 ENV GENIE_HOST "0.0.0.0"
 ENV PORT "8000"
 ENV WSPORT "8000"
 # ENV EARLYBIND=true
 ENV EARLYBIND "true"
+CMD ["/bin/bash"]
 # run app
 # CMD ["bin/server"]
 # ENTRYPOINT ["julia", "--project", "-e", "using GenieFramework; Genie.loadapp(); up(async=false);"]
