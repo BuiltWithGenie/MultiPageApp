@@ -6,7 +6,7 @@
         "vscode": {
             "extensions": [
                 "julialang.language-julia",
-                "geniebuilder.geniebuilderinsider"
+                "geniebuilder.geniebuilder"
             ]
         }
     },
