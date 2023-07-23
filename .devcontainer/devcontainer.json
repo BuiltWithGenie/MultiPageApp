@@ -1,26 +1,17 @@
-
-// See https://github.com/julia-vscode/julia-devcontainer/blob/master/Dockerfile for image contents
 {
-	"name": "Genie",
-	"image": "ghcr.io/julia-vscode/julia-devcontainer:latest",
-
-	// Configure tool-specific properties.
-	"customizations": {
-		// Configure properties specific to VS Code.
-		"vscode": {
-			// Add the IDs of extensions you want installed when the container is created.
-			"extensions": [
-				"julialang.language-julia",
-				"geniebuilder.geniebuilderinsider"
-
-			]
-		}
-	},
-"features": {
-    "ghcr.io/julialang/devcontainer-features/julia:latest": {
-	     "channel": "1.9"
-    }
-},
-	"postStartCommand": "sh startcmd.sh",
-	"forwardPorts": [8000]
+    "name": "Genie",
+    "image": "julia",
+    "workspaceFolder": "/home/genie/MultiPageApp",
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "julialang.language-julia",
+                "geniebuilder.geniebuilderinsider"
+            ]
+        }
+    },
+    "postStartCommand": "",
+    "forwardPorts": [
+        8000
+    ]
 }
