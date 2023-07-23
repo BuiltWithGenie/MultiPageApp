@@ -1,9 +1,6 @@
 {
     "name": "Genie",
-    "image": "julia",
-    "build": {
-        "dockerfile": "Dockerfile"
-    },
+    "image": "pjgim/workshop",
     "workspaceFolder": "/home/genie/MultiPageApp",
     "customizations": {
         "vscode": {
