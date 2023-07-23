@@ -1,7 +1,7 @@
 module ML
 using GenieFramework
 using DelimitedFiles, Flux, JLD2, PlotlyBase
-include("app/NNtrain.jl")
+include("lib/NNtrain.jl")
 using .NNtrain
 @genietools
 
