@@ -1,16 +1,24 @@
 {
-    "name": "Genie",
-    "image": "julia",
-    "customizations": {
-        "vscode": {
-            "extensions": [
-                "julialang.language-julia",
-                "geniebuilder.geniebuilder"
-            ]
-        }
-    },
-    "postStartCommand": "",
-    "forwardPorts": [
-        8000
-    ]
+	"name": "Genie",
+	"image": "ghcr.io/julia-vscode/julia-devcontainer",
+
+	// Configure tool-specific properties.
+	"customizations": {
+		// Configure properties specific to VS Code.
+		"vscode": {
+			// Add the IDs of extensions you want installed when the container is created.
+			"extensions": [
+				"julialang.language-julia",
+				"geniebuilder.geniebuilder"
+
+			]
+		}
+	},
+"features": {
+    "ghcr.io/julialang/devcontainer-features/julia:1": {
+        "channel": "1.9"
+    }
+},
+	"postStartCommand": "mkdir -p ~/.julia/geniebuilder/apps && ln -s /workspaces/MultiPageApp/app/EDA/ ~/.julia/geniebuilder/apps/EDA && ln -s /workspaces/MultiPageApp/app/ML ~/.julia/geniebuilder/apps/ML && ln -s /workspaces/MultiPageApp/app/API ~/.julia/geniebuilder/apps/API && ln -s /workspaces/MultiPageApp/ ~/.julia/geniebuilder/apps/MultiPage",
+	"forwardPorts": [8000]
 }
