@@ -1,7 +1,6 @@
 {
     "name": "Genie",
-    "image": "pjgim/workshop",
-    "workspaceFolder": "/home/genie/MultiPageApp",
+    "image": "julia",
     "customizations": {
         "vscode": {
             "extensions": [
