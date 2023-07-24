@@ -5,3 +5,10 @@ GenieFramework = "a59fdf5c-6bf0-4f5d-949c-a137c9e2f353"
 JLD2 = "033835bb-8acc-5ee8-8aae-3f567f8a3819"
 SwagUI = "bf05d729-34b2-4f1f-a2f1-2452bece7ebc"
 SwaggerMarkdown = "1b6eb727-ad4b-44eb-9669-b9596a6e760f"
+
+[compat]
+Flux = "0.14"
+GenieFramework = "1.19"
+JLD2 = "0.4"
+SwagUI = "0.10"
+SwaggerMarkdown = "0.2"
