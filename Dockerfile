@@ -24,7 +24,7 @@ ENV GENIE_ENV "prod"
 ENV GENIE_HOST "0.0.0.0"
 ENV PORT "8000"
 ENV WSPORT "8000"
-ENV EARLYBIND "true"
+# ENV EARLYBIND "true"
 # run app
 # CMD ["bin/server"]
 ENTRYPOINT ["julia", "--project", "-e", "using GenieFramework; Genie.loadapp(); up(async=false);"]
