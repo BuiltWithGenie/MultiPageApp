@@ -14,4 +14,4 @@ cell(style="display: flex; justify-content: space-between; align-items: center; 
         )
     ])
 ])
-page(model, partial=true, v__cloak=true, [@yield], @iif(:isready))
+page(model, partial=true, [@yield])

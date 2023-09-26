@@ -10,7 +10,7 @@ cell(class="row", [
         p("Layer 1 neurons"),
         slider(1:1:64, Symbol("layer_neurons[2]"); label=true),
         p("Layer 2 neurons"),
-        slider(1:1:64, Symbol("layer_neurons[2]"); label=true),
+        slider(1:1:64, Symbol("layer_neurons[3]"); label=true),
         p("Train samples"),
         slider(1:1:500, :N_train; label=true),
         p("Epochs"),

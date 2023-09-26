@@ -41,5 +41,5 @@ const data = CSV.read("data/HousingData.csv", DataFrame, missingstring="NA") |> 
 end
 
 # @page("/", "app.jl.html")
-@page("/", "ui.jl")
+#= @page("/", "ui.jl") =#
 end

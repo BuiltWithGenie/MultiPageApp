@@ -1,16 +1,13 @@
 module App
 using GenieFramework
 @genietools
-include("app/EDA/app.jl")
-include("app/ML/app.jl")
-include("app/API/app.jl")
-import .EDA
-import .ML
-import .API
+include("EDA.jl")
+include("ML.jl")
+include("API.jl")
 
-@page("/eda", "app/EDA/ui.jl", "layout.jl", Main.App.EDA)
-@page("/ml", "app/ML/ui.jl", "layout.jl", Main.App.ML)
-@page("/api", Main.App.API.ui, nothing)
+@page("/eda", "EDA_ui.jl.html", layout = "layout.jl", model= EDA)
+@page("/ml", "ML_ui.jl.html", layout = "layout.jl", model = ML)
+route("/api", API.ui)
 route("/") do
     redirect(:get_eda)
 end

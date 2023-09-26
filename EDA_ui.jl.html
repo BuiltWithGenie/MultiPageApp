@@ -1,0 +1,24 @@
+<header class="st-header q-pa-sm">
+    <h1 id="iaj1" draggable="true" class="st-header__title text-h3">Boston housing data EDA</h1>
+</header>
+<div class="row st-col ">
+    <div class="st-col col-4 col-sm st-module st-col ">
+        <h4>Scatter plot</h4>
+        <plotly :data="scatter_trace" :layout="scatter_layout" :displaylogo="false"></plotly>
+    </div>
+    <div class="st-col col-4 col-sm st-module st-col ">
+        <h4>Histogram</h4>
+        <plotly :data="hist_trace" :layout="hist_layout" :displaylogo="false"></plotly>
+    </div>
+    <div class="st-col col-4 col-sm st-module st-col ">
+        <h4>Box plot</h4>
+        <plotly :data="box_trace" :layout="box_layout" :displaylogo="false"></plotly>
+    </div>
+</div>
+<div class="row st-col ">
+    <div class="st-col col-12 col-sm st-module st-col ">
+        <h4>Boston housing data</h4><q-table flat style="height: 350px;" :columns="housing_data.columns"
+            v-model="housing_data" :data="housing_data.data" dense row-key="__id"
+            :pagination.sync="housing_data_pagination"></q-table>
+    </div>
+</div>

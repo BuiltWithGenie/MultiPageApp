@@ -1,6 +1,6 @@
 module API
-using GenieFramework
-using GenieFramework.Genie.Renderers.Json: json
+using Genie
+using Genie.Renderers.Json: json
 using Flux, DataFrames, JLD2, DelimitedFiles
 using SwagUI, SwaggerMarkdown
 
@@ -50,9 +50,6 @@ openApi = OpenAPI("3.0", info)
 swagger_document = build(openApi)
 
 ui() = render_swagger(swagger_document)
-
-#add route without default layout
-@page("/api", ui, nothing)
 
 end
 
