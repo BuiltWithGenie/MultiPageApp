@@ -10,7 +10,7 @@
         <p>Epochs</p><q-slider :min=1 v-model="epochs" label :max=1000 :step=1></q-slider><br />
         <div class="row st-col ">
             <div class="st-col col-6 col-sm st-col "><q-btn color="primary" label="TRAIN" v-on:click="train = !train"
-                    loading="training" text-color="black"></q-btn><q-btn color="primary" label="SAVE"
+                    :loading="training" text-color="black"></q-btn><q-btn color="primary" label="SAVE"
                     v-on:click="save = !save" text-color="black"></q-btn></div>
         </div>
     </div>

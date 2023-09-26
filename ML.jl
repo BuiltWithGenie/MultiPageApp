@@ -38,7 +38,7 @@ const data = readdlm("data/HousingData_normalized.dlf", ',')
 end
 
 #@page("/", "app.jl.html")
-@page("/", "ui.jl")
+#= @page("/", "ui.jl") =#
 
 end
 

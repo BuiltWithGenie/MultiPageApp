@@ -18,7 +18,7 @@ cell(class="row", [
         br(),
         cell(class="row",
             cell(class="st-col col-6 col-sm", [
-                btn("TRAIN", color="primary", @click("train = !train"), loading="training", textcolor="black",),
+                btn("TRAIN", class="q-mr-sm", color="primary", @click("train = !train"), loading=:training, textcolor="black",),
                 btn("SAVE", color="primary", @click("save = !save"), textcolor="black",)
             ])
         )
