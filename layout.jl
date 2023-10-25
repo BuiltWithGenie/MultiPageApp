@@ -6,7 +6,7 @@ cell(style="display: flex; justify-content: space-between; align-items: center; 
         a(href="$(Router.link_to(:get_eda))", style="text-decoration: none; color: #ffffff;",
             "Exploratory data analysis"
         ),
-        a(href="/ml", style="text-decoration: none; color: #ffffff;",
+        a(href="$(Router.link_to(:get_ml))", style="text-decoration: none; color: #ffffff;",
             "Neural network training"
         ),
         a(href="$(Router.link_to(:get_api))", target="_blank", style="text-decoration: none; color: #ffffff;",
