@@ -46,7 +46,11 @@ end
 info = Dict{String,Any}()
 info["title"] = "Boston housing MEDV prediction"
 info["version"] = "1.0.5"
-openApi = OpenAPI("3.0", info)
+optional_fields = Dict{String,Any}()
+if haskey(ENV, "BASEPATH")
+    optional_fields["servers"] = [Dict("url" => ENV["BASEPATH"])]
+end
+openApi = OpenAPI("3.0", info, optional_fields=optional_fields)
 swagger_document = build(openApi)
 
 ui() = render_swagger(swagger_document)
