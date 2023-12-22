@@ -18,8 +18,8 @@ cell(class="row", [
         br(),
         cell(class="row",
             cell(class="st-col col-6 col-sm", [
-                btn("TRAIN", class="q-mr-sm", color="primary", @click("train = !train"), loading=:training, textcolor="black",),
-                btn("SAVE", color="primary", @click("save = !save"), textcolor="black",)
+                                               btn("TRAIN", class="q-mr-sm", color=button_color, @click("train = !train"), loading=:training, textcolor="black", disable=disable_train,[button_tooltip]),
+                                               btn("SAVE", color=button_color, @click("save = !save"),disable=disable_train,[button_tooltip], textcolor="black",)
             ])
         )
     ]),

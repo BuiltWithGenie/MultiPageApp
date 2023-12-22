@@ -6,6 +6,9 @@ using DelimitedFiles, Flux, JLD2, PlotlyBase
 @genietools
 
 const data = readdlm("data/HousingData_normalized.dlf", ',')
+const disable_train = (haskey(ENV, "GENIE_ENV") && ENV["GENIE_ENV"] == "prod") ? "true" : "false"
+const button_color = disable_train == "true" ? "grey" : "grey"
+const button_tooltip = disable_train == "true" ? tooltip("Run the app locally to enable this button") : ""
 
 @app begin
     @in layer_neurons = [13, 64, 32, 1]
@@ -17,7 +20,10 @@ const data = readdlm("data/HousingData_normalized.dlf", ',')
     @private model = instantiate_model([13, 64, 32, 1])
     @out train_errors = []
     @out test_errors = []
-    @out traces = []
+    @out  traces = [
+                   scatter(x=collect(1:100), y=ones(100), name="train")
+                   scatter(x=collect(1:100), y=ones(100), name="test")
+        ]
     @out layout = PlotlyBase.Layout(
         title="Error vs. epoch",
     )
