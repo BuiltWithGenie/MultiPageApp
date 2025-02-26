@@ -11,3 +11,7 @@ PlotlyBase = "a03496cd-edff-5a9b-9e67-9cda94a718b5"
 Stipple = "4acbeb90-81a0-11ea-1966-bdaff8155998"
 SwagUI = "bf05d729-34b2-4f1f-a2f1-2452bece7ebc"
 SwaggerMarkdown = "1b6eb727-ad4b-44eb-9669-b9596a6e760f"
+
+[compat]
+GenieFramework = "2"
+julia = "1"
